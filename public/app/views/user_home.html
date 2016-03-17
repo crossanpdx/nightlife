@@ -1,0 +1,59 @@
+<div class="container">
+    <img id="nightImg" class="img-responsive img-center" src="/public/img/nightlife.jpg" />
+    
+    <div class="well text-center">
+        <form ng-submit="localSearch()">
+            <div class="form-group">
+                <br>
+                <div class="input-group">
+                    <input ng-model="userLocation" name="userLocation" id="userLocation" type="text" class="form-control" placeholder="Let's Party!">
+                    <span class="input-group-btn">
+                        <input type="submit" id="submitLocation" class="btn btn-block btn-success" value="Submit Location" />
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div ng-if="loading">
+        <div class="well text-center">
+          <h3><i class="fa fa-refresh fa-spin"></i> Loading venues...</h3>
+        </div>
+    </div>
+    
+    <div ng-if="message">
+        <div class="well text-center">
+          <h3><i class="fa fa-exclamation-triangle"></i> {{ message }} </h3>
+        </div>
+    </div>
+    
+    <div class="list-group">
+      <li ng-repeat="venue in venues.businesses" class="list-group-item">
+        <span class="badge badge-lg">{{ going[$index] }}</span>
+        <a ng-if="!checkGoing(venue.id)" ng-click="attendRequest(venue.id)" class="btn btn-default btn-sm pull-right"><i class="fa fa-thumbs-up"></i> I want to go!</a>
+        <a ng-if="checkGoing(venue.id)" ng-click="removeRequest(venue.id)" class="btn btn-success btn-sm pull-right"><i class="fa fa-star"></i> Confirmed</a>
+        <h4 class="list-group-item-heading"><a href="{{ venue.url }}" target="_blank">{{ venue.name }}</a></h4>
+        <p class="list-group-item-text">{{ venue.snippet_text }}</p>
+        <div ng-if="venue.request" class="text-center text-muted"><small>Would you like to confirm you will be attending this venue?</small><br>
+        <button ng-click="attendConfirm(venue.id)" class="btn btn-success btn-xs"><i class="fa fa-thumbs-up"></i> Yes</a><button ng-click="attendCancel(venue.id)" class="btn btn-danger btn-xs"><i class="fa fa-thumbs-down"></i> No</button></div>
+        <div ng-if="venue.remove" class="text-center text-muted"><small>Would you like to remove your attendance from this venue?</small><br>
+        <button ng-click="removeConfirm(venue.id)" class="btn btn-danger btn-xs"><i class="fa fa-ban"></i> Can't make it!</a><button ng-click="removeCancel(venue.id)" class="btn btn-success btn-xs"><i class="fa fa-times-circle"></i> Wait! I'm going!</button></div>
+      </li>
+    </div>
+    
+    <div ng-if="venues && currentPage == 1" class="text-center">
+        <ul class="pagination">
+            <li class="active"><a href ng-click="localSearch()">1</a></li>
+            <li ng-if="venues.total > 20"><a href ng-click="secondPage()">2</a></li>
+        </ul>
+    </div>
+    
+    <div ng-if="venues && currentPage == 2" class="text-center">
+        <ul class="pagination">
+            <li><a href ng-click="localSearch()">1</a></li>
+            <li class="active"><a href ng-click="secondPage()">2</a></li>
+        </ul>
+    </div>
+
+  
+</div>

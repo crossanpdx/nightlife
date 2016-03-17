@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>nightlife-coordination-app</title>
+<link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
+</head>
+<body ng-app="NightLifeApp">
+    
+      <div class="container-fluid login-top text-right">
+          <a href="#/login"><i class="fa fa-unlock-alt"></i> Log In</a></li>
+      </div>
+    
+      
+    <div class="container-fluid" id="page-wrap">
+    <div class="row" id="page-contents">
+      
+      <div ng-view></div>
+
+    </div>
+    </div>
+
+    
+    <div class="container-fluid" id="footer">
+      <div class="container">
+        <div class="col-md-12 text-center">
+          <p><small>Search for bars, restaurants and food places in your area, and log in to confirm your attendance.</small></p>
+    
+        </div>
+      </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Modules -->
+    <script src="/public/app/app.js"></script>
+    
+    <!-- Controllers -->
+    <script src="/public/app/controllers/HomeController.js"></script>
+    
+    <!-- Services -->
+    <script src="/public/app/services/yelp.js"></script>
+    <script src="/public/app/services/attend.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<div class="container">
+    <img id="nightImg" class="img-responsive img-center" src="/public/img/nightlife.jpg" />
+    
+    <div class="well text-center">
+        <form ng-submit="localSearch()">
+            <div class="form-group">
+                <br>
+                <div class="input-group">
+                    <input ng-model="userLocation" name="userLocation" id="userLocation" type="text" class="form-control" placeholder="I want to party like it's 2099!">
+                    <span class="input-group-btn">
+                        <input type="submit" id="submitLocation" class="btn btn-block btn-success" value="Chimichanga!" />
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div ng-if="loading">
+        <div class="well text-center">
+          <h3><i class="fa fa-refresh fa-spin"></i> Loading venues...</h3>
+        </div>
+    </div>
+    
+    <div ng-if="message">
+        <div class="well text-center">
+          <h3><i class="fa fa-exclamation-triangle"></i> {{ message }} </h3>
+        </div>
+    </div>
+    
+    <div class="list-group">
+      <a ng-repeat="venue in venues.businesses" href="{{ venue.url }}" target="_blank" class="list-group-item">
+        <span class="badge badge-lg">{{ going[$index] }}</span>
+        <h4 class="list-group-item-heading">{{ venue.name }}</h4>
+        <p class="list-group-item-text">{{ venue.snippet_text }}</p>
+      </a>
+    </div>
+    
+    <div ng-if="venues && currentPage == 1" class="text-center">
+        <ul class="pagination">
+            <li class="active"><a href ng-click="localSearch()">1</a></li>
+            <li ng-if="venues.total > 20"><a href ng-click="secondPage()">2</a></li>
+        </ul>
+    </div>
+    
+    <div ng-if="venues && currentPage == 2" class="text-center">
+        <ul class="pagination">
+            <li><a href ng-click="localSearch()">1</a></li>
+            <li class="active"><a href ng-click="secondPage()">2</a></li>
+        </ul>
+    </div>
+
+  
+</div>

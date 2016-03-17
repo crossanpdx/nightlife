@@ -1,0 +1,90 @@
+/*LAYOUTS*/
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body { 
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 150px; 
+    background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 15px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 10px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 15px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 10px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+#brand-icon {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #ffffff;
+}
+
+/* fix footer at bottom of page if short page */
+#footer {
+    padding-top: 20px;
+    background-color: #222222;
+    color: #BDC3C7;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    border-top: 1px solid #2c2c2c;
+    text-align: center;
+}
+
+.login-top {
+    padding: 20px;
+}
+
+.login-top a {
+    padding: 20px;
+}
+
+.login-top a:hover {
+    background-color: #2c2c2c;
+}
+
+/*IMAGES*/
+
+.img-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#nightImg {
+    margin-bottom: 20px;
+}
+
+/*BUTTONS*/
+
+.btn-lg {
+    margin-right: 10px;
+}
+
+.btn-xs {
+    margin-right: 5px;
+}
+
+#submitLocation {
+    min-width: 30px;
+}
+
+/*#submitLocation:focus {*/
+/*  outline: none;*/
+/*}*/
+
+/*ELEMENTS*/
+
+.badge-lg {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
